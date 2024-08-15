@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+
+        <h1>Welcome to MYDUKA</h1>
+        <p>Your one-stop shop for the best products.</p>
+        <a href="/products" class="btn btn-primary btn-lg" style="color:bisque; background-color: black;">Shop Now</a>
+    </div>
+</section>
+
+
+
+<!-- Main Content -->
+<div class="container mt-5 pt-5" style="background-color: black;">
+    <h2 style="color: bisque; text-align: center;" class="text-center mb-4">Featured Products</h2>
+    <div class="row" >
+        <div class="flex">
+            <!-- Example Product Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/aa/e9/7d/aae97d012303e32a26e1743a61eed61e.jpg"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 style="color: bisque;" class="card-title">Wine</h5>
+                        <p style="color: bisque;" class="card-text"></p>
+                        <a href="products.html" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/b4/f0/dc/b4f0dcd0bc99ad088bc1755741dac0d1.jpg"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 style="color: bisque;" class="card-title">Tomatoes</h5>
+                        <p style="color: bisque;" class="card-text"></p>
+                        <a href="products.html" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/e0/99/b2/e099b2e52a37a924631cd772622669f0.jpg"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 style="color: bisque;" class="card-title">Taro Leaves</h5>
+                        <p style="color: bisque;" class="card-text"></p>
+                        <a href="products.html" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/7d/87/e1/7d87e1ec9382ee6b1c7c1945643050ac.jpg"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 style="color: bisque;" class="card-title">Chocolate</h5>
+                        <p style="color: bisque;" class="card-text"></p>
+                        <a href="products.html" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.pinimg.com/564x/bd/dd/9d/bddd9d99e0962b6bda5a284379d09bf7.jpg"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 style="color: bisque;" class="card-title">Sesame Seeds</h5>
+                        <p style="color: bisque;" class="card-text"></p>
+                        <a href="products.html" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/a9/41/55/a9415505889437aff9e710bcedb9e50b.jpg"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 style="color: bisque;" class="card-title">Beef</h5>
+                        <p style="color: bisque;" class="card-text"></p>
+                        <a href="products.html" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Repeat above block for more products -->
+</div>
+
+
+
+<!-- Footer -->
+<footer class="footer mt-5">
+    <div class="container">
+        <p>&copy; 2024 MYDUKA. All Rights Reserved.</p>
+        <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+    </div>
+</footer>
+
+{% endblock %}

@@ -1,0 +1,185 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: bisque;
+}
+
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    background-color: rgb(44, 44, 44);
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    color: burlywood;
+}
+
+.navbar .nav-link {
+    font-size: 1rem;
+    color: #e6dada;
+    margin-right: 1rem;
+}
+
+.navbar .nav-link:hover {
+    color: #007bff;
+}
+
+
+/* styles.css */
+
+.flash-message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 90%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.error{
+    color: black;
+    background-color: aliceblue;
+    font-weight: bolder;
+    font-size: larger;
+
+}
+
+.success{
+    color: black;
+    background-color: aliceblue;
+    font-weight: bolder;
+    font-size: larger;
+
+
+}
+
+
+/* dashboard */
+
+    .content {
+        margin: 50px auto;
+        max-width: 1200px;
+        padding: 20px;
+    }
+    .metrics-container {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+    .metric-card {
+        background: grey;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        flex: 1;
+        margin: 0 10px;
+    }
+    .row {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+    .col-lg-6 {
+        flex: 1;
+        margin: 0 10px;
+    }
+ 
+    .chart-container {
+        background-color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+    }
+    .chart-title {
+        color: bisque;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .table {
+        background-color: #000000;
+        color: bisque;
+    }
+    
+    .table thead {
+        background-color: #000000;
+    }
+  
+    footer {
+        font-weight: bolder;
+        color: bisque;
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        background: black;
+        border-top: 1px solid black;
+    }
+
+/* end */
+
+/* home */
+.hero {
+    background: url(https://i.pinimg.com/564x/94/b1/69/94b16901e828e7e23652a089aef9ef29.jpg) no-repeat center center;
+    background-size: cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    text-align: center;
+}
+.hero h1 {
+    font-weight: bolder;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+.wave{
+    margin-top: -150px;
+   
+}
+.card {
+    background-color: #000000;
+    margin-bottom: 2rem;
+    border: none;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+.footer {
+    background: #343a40;
+    color: #f5f5dc;
+    padding: 2rem 0;
+    text-align: center;
+}
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+.footer a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* end */
+
+
+

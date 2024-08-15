@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" style="background-color: black; color: bisque; margin-top: 40px;"
+        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add Product
+    </button>
+
+    <!-- Modal for Adding Product -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/products" method="post">
+                        <div class="form-group">
+                            <label for="product_id">ID</label>
+                            <input type="number" class="form-control" id="product_id" name="product_id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="buyingprice">Buying Price</label>
+                            <input type="number" step="0.01" class="form-control" id="buyingprice" name="buyingprice" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sellingprice">Selling Price</label>
+                            <input type="number" step="0.01" class="form-control" id="sellingprice" name="sellingprice" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bar_code">Bar Code</label>
+                            <input type="text" class="form-control" id="bar_code" name="bar_code" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary mt-3">Add Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if prods %}
+        <table id="table" class="table table-striped-columns mt-4">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Buying Price</th>
+                    <th scope="col">Selling Price</th>
+                    <th scope="col">Remaining Stock</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prod in prods %}
+                <tr style="
+                    {% set stock = remaining_stock(prod[0]) %}
+                    {% if stock < 20 %}background-color: red;
+                    {% elif stock < 50 %}background-color: yellow;
+                    {% else %}background-color: white;
+                    {% endif %}">
+                    <td>{{ prod[0] }}</td>
+                    <td>{{ prod[1] }}</td>
+                    <td>{{ prod[2] }}</td>
+                    <td>{{ prod[3] }}</td>
+                    <td>{{ stock }}</td>
+
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProductModal{{ prod[0] }}" style="background-color: black; color: bisque;">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- Edit Product Modal -->
+                <div class="modal fade" id="editProductModal{{ prod[0] }}" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="editProductModalLabel{{ prod[0] }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="editProductModalLabel{{ prod[0] }}">Edit Product</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/update_product" method="post">
+                                    <input type="hidden" name="productid" value="{{ prod[0] }}">
+                                    <div class="form-group">
+                                        <label for="name">Product Name</label>
+                                        <input type="text" class="form-control" id="name" name="name" value="{{ prod[1] }}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="buyingprice">Buying Price</label>
+                                        <input type="number" class="form-control" id="buyingprice" name="buyingprice" value="{{ prod[2] }}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sellingprice">Selling Price</label>
+                                        <input type="number" class="form-control" id="sellingprice" name="sellingprice" value="{{ prod[3] }}" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-secondary" style="background-color: black; color: bisque;">Save Changes</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No products found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

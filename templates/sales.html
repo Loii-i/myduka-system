@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Sales{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+
+<!-- Button trigger modal -->
+<button type="button" style="background-color: black; color: bisque; margin-top: 40px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Add Sales
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Sales</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/sales" method="post">
+                <div class="form-group">
+                        <label for="salesid">Sale ID</label>
+                        <input type="number" class="form-control" id="salesid" name="salesid" required>
+                    </div>
+               <div class="form-group">
+                        <label for="productid">Product ID</label>
+                        <select class="form-control" id="productid" name="productid" required>
+                            {% for prod in prods %}
+                            <option value="{{ prod[0] }}">{{ prod[0] }} - {{ prod[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                 <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" required>
+                    </div>
+                         <button type="submit" class="btn btn-primary">Add Sale</button>
+                </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+     <table id="table" class="table table-striped-columns" >
+        <thead class="table-dark">
+            <tr>
+                    <th>Sale ID</th>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                </tr>
+        </thead>
+        <tbody>
+            {% for sale in sales %}
+                <tr>
+                    <td>{{ sale[0] }}</td>
+                    <td>{{ sale[1] }}</td>
+                    <td>{{ sale[2] }}</td>
+                    <td>{{ sale[3] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
